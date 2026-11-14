@@ -72,39 +72,8 @@
     }
   </script>
 
-  <style>
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-14px) rotate(2deg); }
-    }
-    @keyframes floatReverse {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(12px) rotate(-2deg); }
-    }
-    .animate-float-slow {
-      animation: floatSlow 6s ease-in-out infinite;
-    }
-    .animate-float-reverse {
-      animation: floatReverse 7s ease-in-out infinite;
-    }
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    .fade-up {
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+  <!-- Estilos Customizados & Animações -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="font-body bg-[#FAF8F5] text-brand-dark antialiased selection:bg-brand-pink selection:text-white">
 
@@ -701,69 +670,6 @@
   </div>
 
   <!-- Scripts Vanilla: Filtros, Lightbox e Fade-in ao Rolar -->
-  <script>
-    // 1. Filtro da Galeria
-    function filterGallery(category, button) {
-      const cards = document.querySelectorAll('.theme-card');
-      const buttons = document.querySelectorAll('.filter-btn');
-
-      buttons.forEach(btn => {
-        btn.classList.remove('bg-pink-600', 'text-white');
-        btn.classList.add('bg-pink-50', 'text-pink-700');
-      });
-      button.classList.remove('bg-pink-50', 'text-pink-700');
-      button.classList.add('bg-pink-600', 'text-white');
-
-      cards.forEach(card => {
-        if (category === 'all' || card.classList.contains(category)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-
-    // 2. Lightbox Modal
-    const modal = document.getElementById('lightboxModal');
-    const modalImg = document.getElementById('lightboxImg');
-    const modalTitle = document.getElementById('lightboxTitle');
-    const modalBtn = document.getElementById('lightboxBtn');
-
-    function openLightbox(src, title) {
-      modalImg.src = src;
-      modalTitle.textContent = title;
-      modalBtn.href = `https://wa.me/5565996872050?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20disponibilidade%20para%20o%20tema%20${encodeURIComponent(title)}.`;
-      modal.classList.remove('hidden');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      modal.classList.add('hidden');
-      document.body.style.overflow = '';
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-        closeLightbox();
-      }
-    });
-
-    // 3. Animações de Entrada (Fade-up) com IntersectionObserver
-    document.addEventListener('DOMContentLoaded', () => {
-      const animatedElements = document.querySelectorAll('section, .theme-card');
-      animatedElements.forEach(el => el.classList.add('fade-up'));
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08 });
-
-      animatedElements.forEach(el => observer.observe(el));
-    });
-  </script>
+  <script src="js/main.js"></script>
 </body>
 </html>
