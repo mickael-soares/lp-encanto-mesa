@@ -40,6 +40,40 @@
       }
     }
   </script>
+
+  <style>
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-14px) rotate(2deg); }
+    }
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(12px) rotate(-2deg); }
+    }
+    .animate-float-slow {
+      animation: floatSlow 6s ease-in-out infinite;
+    }
+    .animate-float-reverse {
+      animation: floatReverse 7s ease-in-out infinite;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 <body class="font-body bg-[#FAF8F5] text-brand-dark antialiased selection:bg-brand-pink selection:text-white">
 
@@ -76,7 +110,12 @@
 
   <!-- Hero Section -->
   <section class="relative overflow-hidden pt-8 pb-14 md:py-16 bg-gradient-to-b from-brand-softYellow/30 via-white to-[#FAF8F5]">
-    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+    <!-- Elementos Flutuantes Sutis Decorativos de Fundo -->
+    <div class="absolute top-10 left-6 w-24 h-24 rounded-full bg-brand-pink/20 blur-2xl pointer-events-none animate-float-slow"></div>
+    <div class="absolute bottom-16 right-10 w-32 h-32 rounded-full bg-brand-yellow/25 blur-2xl pointer-events-none animate-float-reverse"></div>
+    <div class="absolute top-1/2 left-1/3 w-20 h-20 rounded-full bg-brand-sky/20 blur-2xl pointer-events-none animate-float-slow"></div>
+
+    <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center relative z-10">
       <div>
         <span class="inline-flex items-center gap-2 bg-pink-50 border border-pink-200 text-pink-700 text-xs font-bold px-3 py-1 rounded-full shadow-sm mb-4">
           <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i> Pegue & Monte Prático em Cuiabá
@@ -283,13 +322,21 @@
       <button class="filter-btn bg-pink-50 text-pink-700 hover:bg-pink-100 text-xs font-bold px-4 py-2 rounded-full transition-colors" onclick="filterGallery('especial', this)">Especiais</button>
     </div>
 
-    <!-- Cards Temáticos Reais com Fotos do Feed -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-stretch">
+    <!-- Mobile Swipe Hint -->
+    <p class="sm:hidden text-[11px] text-pink-600 font-bold mb-3 flex items-center gap-1.5 animate-pulse">
+      <i class="fa-solid fa-arrows-left-right"></i> Deslize para ver todos os temas
+    </p>
+
+    <!-- Cards Temáticos Reais com Touch-Snap e Lightbox -->
+    <div class="flex overflow-x-auto sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-stretch pb-4 sm:pb-0 snap-x snap-mandatory no-scrollbar">
       <!-- 1: Vaquinha Rosa -->
-      <div class="theme-card infantil-menina bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
-        <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0">
+      <div class="theme-card infantil-menina bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden border border-pink-100/80 shadow-md shadow-pink-100/40 hover:shadow-xl hover:shadow-pink-200/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full min-w-[260px] sm:min-w-0 snap-center">
+        <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0 cursor-pointer" onclick="openLightbox('images/vaquinha-rosa.webp', 'Vaquinha Rosa')">
           <img src="images/vaquinha-rosa.webp" alt="Mesa Vaquinha Rosa Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           <span class="absolute top-2 right-2 bg-pink-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">Sucesso</span>
+          <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1.5 backdrop-blur-[2px]">
+            <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> Ver Foto
+          </div>
         </div>
         <div class="p-3.5 flex flex-col flex-1 justify-between">
           <div>
@@ -303,10 +350,13 @@
       </div>
 
       <!-- 2: Capivara Encantada -->
-      <div class="theme-card especial bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
-        <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0">
+      <div class="theme-card especial bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden border border-pink-100/80 shadow-md shadow-pink-100/40 hover:shadow-xl hover:shadow-pink-200/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full min-w-[260px] sm:min-w-0 snap-center">
+        <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0 cursor-pointer" onclick="openLightbox('images/capivara.webp', 'Capivara de Aniversário')">
           <img src="images/capivara.webp" alt="Mesa Capivara Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           <span class="absolute top-2 right-2 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">Trend Cuiabá</span>
+          <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1.5 backdrop-blur-[2px]">
+            <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> Ver Foto
+          </div>
         </div>
         <div class="p-3.5 flex flex-col flex-1 justify-between">
           <div>
@@ -320,10 +370,13 @@
       </div>
 
       <!-- 3: Fazendinha Menino / Trator -->
-      <div class="theme-card infantil-menino bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
-        <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0">
+      <div class="theme-card infantil-menino bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden border border-pink-100/80 shadow-md shadow-pink-100/40 hover:shadow-xl hover:shadow-pink-200/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full min-w-[260px] sm:min-w-0 snap-center">
+        <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0 cursor-pointer" onclick="openLightbox('images/fazendinha-trator.webp', 'Fazendinha do Trator')">
           <img src="images/fazendinha-trator.webp" alt="Mesa Fazendinha Trator Azul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           <span class="absolute top-2 right-2 bg-blue-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">Meninos</span>
+          <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1.5 backdrop-blur-[2px]">
+            <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> Ver Foto
+          </div>
         </div>
         <div class="p-3.5 flex flex-col flex-1 justify-between">
           <div>
@@ -337,10 +390,13 @@
       </div>
 
       <!-- 4: Futebol / Flamengo -->
-      <div class="theme-card infantil-menino bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
-        <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0">
+      <div class="theme-card infantil-menino bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden border border-pink-100/80 shadow-md shadow-pink-100/40 hover:shadow-xl hover:shadow-pink-200/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full min-w-[260px] sm:min-w-0 snap-center">
+        <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0 cursor-pointer" onclick="openLightbox('images/futebol-flamengo.webp', 'Futebol & Clubes')">
           <img src="images/futebol-flamengo.webp" alt="Mesa Futebol Flamengo Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           <span class="absolute top-2 right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">Futebol</span>
+          <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1.5 backdrop-blur-[2px]">
+            <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> Ver Foto
+          </div>
         </div>
         <div class="p-3.5 flex flex-col flex-1 justify-between">
           <div>
@@ -354,10 +410,13 @@
       </div>
 
       <!-- 5: Coquette / Happy Birthday -->
-      <div class="theme-card infantil-menina bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all group flex flex-col h-full">
-        <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0">
+      <div class="theme-card infantil-menina bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden border border-pink-100/80 shadow-md shadow-pink-100/40 hover:shadow-xl hover:shadow-pink-200/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full min-w-[260px] sm:min-w-0 snap-center">
+        <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0 cursor-pointer" onclick="openLightbox('images/coquette-lacos.webp', 'Coquette & Laços')">
           <img src="images/coquette-lacos.webp" alt="Mesa Coquette Laços Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           <span class="absolute top-2 right-2 bg-purple-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">Delicado</span>
+          <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1.5 backdrop-blur-[2px]">
+            <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> Ver Foto
+          </div>
         </div>
         <div class="p-3.5 flex flex-col flex-1 justify-between">
           <div>
@@ -574,12 +633,37 @@
   </footer>
 
   <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/5565996872050?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20um%20kit%20Festa%20na%20Mesa." target="_blank" class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl shadow-emerald-400/50 hover:scale-110 active:scale-95 transition-all" title="WhatsApp (65) 99687-2050">
+  <a href="https://wa.me/5565996872050?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20um%20kit%20Festa%20na%20Mesa." target="_blank" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl shadow-emerald-400/50 hover:scale-110 active:scale-95 transition-all" title="WhatsApp (65) 99687-2050">
     <i class="fa-brands fa-whatsapp"></i>
   </a>
 
-  <!-- Simple Gallery Filter Script -->
+  <!-- Lightbox Modal Vanilla -->
+  <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4" onclick="closeLightbox(event)">
+    <div class="relative max-w-lg w-full bg-white rounded-3xl overflow-hidden shadow-2xl p-4 sm:p-5" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black transition-colors" title="Fechar">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+
+      <div class="rounded-2xl overflow-hidden aspect-square bg-gray-100 mb-4 shadow-inner">
+        <img id="lightboxImg" src="" alt="Visualização do tema" class="w-full h-full object-cover">
+      </div>
+
+      <div class="flex items-center justify-between gap-3">
+        <div>
+          <span class="text-[10px] uppercase font-bold text-pink-600 bg-pink-50 px-2.5 py-0.5 rounded-full">Encanto na Mesa CBA</span>
+          <h3 id="lightboxTitle" class="font-title font-bold text-base sm:text-lg text-brand-dark mt-1"></h3>
+        </div>
+        <a id="lightboxBtn" href="#" target="_blank" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-md shadow-emerald-200 transition-all flex-shrink-0">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Reservar</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts Vanilla: Filtros, Lightbox e Fade-in ao Rolar -->
   <script>
+    // 1. Filtro da Galeria
     function filterGallery(category, button) {
       const cards = document.querySelectorAll('.theme-card');
       const buttons = document.querySelectorAll('.filter-btn');
@@ -599,6 +683,48 @@
         }
       });
     }
+
+    // 2. Lightbox Modal
+    const modal = document.getElementById('lightboxModal');
+    const modalImg = document.getElementById('lightboxImg');
+    const modalTitle = document.getElementById('lightboxTitle');
+    const modalBtn = document.getElementById('lightboxBtn');
+
+    function openLightbox(src, title) {
+      modalImg.src = src;
+      modalTitle.textContent = title;
+      modalBtn.href = `https://wa.me/5565996872050?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20disponibilidade%20para%20o%20tema%20${encodeURIComponent(title)}.`;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeLightbox();
+      }
+    });
+
+    // 3. Animações de Entrada (Fade-up) com IntersectionObserver
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll('section, .theme-card');
+      animatedElements.forEach(el => el.classList.add('fade-up'));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      animatedElements.forEach(el => observer.observe(el));
+    });
   </script>
 </body>
 </html>
