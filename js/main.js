@@ -40,12 +40,14 @@ function openLightbox(src, title) {
   modalBtn.href = `https://wa.me/5565996872050?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20disponibilidade%20para%20o%20tema%20${encodeURIComponent(title)}.`;
   modal.classList.remove('hidden');
   document.body.style.overflow = 'hidden';
+  document.getElementById('waMascotWidget')?.classList.add('is-modal-open');
 }
 
 function closeLightbox() {
   if (!modal) return;
   modal.classList.add('hidden');
   document.body.style.overflow = '';
+  document.getElementById('waMascotWidget')?.classList.remove('is-modal-open');
 }
 
 // Fechar com tecla ESC
@@ -73,4 +75,54 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   animatedElements.forEach((el) => observer.observe(el));
+
+  // 4. Widget Flutuante Inteligente (Mascote WhatsApp)
+  const waWidget = document.getElementById('waMascotWidget');
+  const waBubble = document.getElementById('waMascotBubble');
+  const waBubbleClose = document.getElementById('waBubbleClose');
+
+  if (waWidget) {
+    if (waBubble && waBubbleClose) {
+      waBubbleClose.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        waBubble.classList.add('is-dismissed');
+      });
+      setTimeout(() => waBubble.classList.add('is-dismissed'), 9000);
+    }
+
+    // Compacta a mascote em seções de visualização de fotos/feedbacks para não atrapalhar
+    const compactTargets = document.querySelectorAll('#temas, #feedbacks');
+    const compactVisible = new Set();
+    if (compactTargets.length) {
+      const compactObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) compactVisible.add(entry.target);
+            else compactVisible.delete(entry.target);
+          });
+          waWidget.classList.toggle('is-compact', compactVisible.size > 0);
+        },
+        { threshold: 0.18 }
+      );
+      compactTargets.forEach((el) => compactObserver.observe(el));
+    }
+
+    // Oculta o widget quando o CTA Final ou Rodapé já estão visíveis
+    const hideTargets = document.querySelectorAll('#cta-final, footer');
+    const hideVisible = new Set();
+    if (hideTargets.length) {
+      const hideObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) hideVisible.add(entry.target);
+            else hideVisible.delete(entry.target);
+          });
+          waWidget.classList.toggle('is-hidden', hideVisible.size > 0);
+        },
+        { threshold: 0.15 }
+      );
+      hideTargets.forEach((el) => hideObserver.observe(el));
+    }
+  }
 });

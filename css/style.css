@@ -70,3 +70,124 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #DB2777;
 }
+
+/* =============================================================
+   Balões Animados (Hero) & Mascote WhatsApp Inteligente
+   ============================================================= */
+@keyframes balloonFloatUp {
+  0% {
+    transform: translateY(115%) translateX(0) rotate(-3deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--balloon-opacity, 0.34);
+  }
+  50% {
+    transform: translateY(35%) translateX(10px) rotate(3deg);
+    opacity: var(--balloon-opacity, 0.34);
+  }
+  88% {
+    opacity: var(--balloon-opacity, 0.34);
+  }
+  100% {
+    transform: translateY(-30%) translateX(-8px) rotate(-2deg);
+    opacity: 0;
+  }
+}
+
+@keyframes mascotBob {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes mascotBlinkOverlay {
+  0%, 91%, 95.5%, 100% {
+    opacity: 0;
+  }
+  92.5%, 94.5% {
+    opacity: 1;
+  }
+}
+
+@keyframes waPulseRing {
+  0% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.38);
+    opacity: 0;
+  }
+}
+
+.hero-balloon {
+  position: absolute;
+  bottom: -60px;
+  pointer-events: none;
+  will-change: transform, opacity;
+  animation: balloonFloatUp var(--dur, 12s) ease-in-out infinite;
+  animation-delay: var(--del, 0s);
+}
+
+.mascot-bob {
+  animation: mascotBob 4.2s ease-in-out infinite;
+}
+
+.mascot-blink-layer {
+  opacity: 0;
+  animation: mascotBlinkOverlay 4.8s ease-in-out infinite;
+}
+
+.wa-pulse-ring {
+  animation: waPulseRing 2.4s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
+}
+
+/* Estados inteligentes do Widget Flutuante */
+.wa-mascot-widget {
+  transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wa-mascot-widget.is-hidden,
+.wa-mascot-widget.is-modal-open {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(18px) scale(0.92);
+}
+
+.wa-mascot-figure {
+  transition: max-height 0.32s ease, opacity 0.28s ease, transform 0.32s ease, margin 0.32s ease;
+  max-height: 120px;
+  padding-top: 5px;
+  overflow: hidden;
+}
+
+.wa-mascot-widget.is-compact .wa-mascot-figure {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(10px) scale(0.8);
+  margin-bottom: 0;
+}
+
+.wa-mascot-bubble {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.wa-mascot-widget.is-compact .wa-mascot-bubble,
+.wa-mascot-bubble.is-dismissed {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(6px) scale(0.95);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-balloon,
+  .mascot-bob,
+  .mascot-blink-layer,
+  .wa-pulse-ring {
+    animation: none !important;
+  }
+}

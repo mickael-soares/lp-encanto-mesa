@@ -11,8 +11,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Encanto na Mesa CBA | Kits Festa na Mesa & Pegue e Monte em Cuiabá</title>
-  <meta name="description" content="Faça do seu simples bolinho um verdadeiro Encanto na Mesa! Kits Pegue e Monte com balões já inflados e montados, mesa cavalete e temas completos no Coophamil, Cuiabá-MT.">
+  <title>Encanto na Mesa CBA | Festa Compacta, Festa na Mesa & Pegue e Monte em Cuiabá</title>
+  <meta name="description" content="Kit festa compacta (pocket party) e Pegue e Monte em Cuiabá-MT. Aluguel de decoração para festa na mesa, só um bolinho e mesversário com balões já inflados e mesa cavalete no Coophamil.">
+  <meta name="robots" content="index, follow">
+  <meta name="geo.region" content="BR-MT">
+  <meta name="geo.placename" content="Cuiabá">
+  <!-- TODO: Ao publicar no Cloudflare com domínio próprio, atualizar canonical, og:url, og:image, twitter:image e JSON-LD -->
+  <link rel="canonical" href="https://mickael-soares.github.io/encantonamesacba/">
   
   <!-- Autoria & Direitos Autorais -->
   <meta name="author" content="Mickael Soares">
@@ -74,6 +79,75 @@
 
   <!-- Estilos Customizados & Animações -->
   <link rel="stylesheet" href="css/style.css">
+
+  <!-- Dados Estruturados (Schema.org JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "Encanto na Mesa CBA",
+        "description": "Aluguel de kits Pegue e Monte, festa na mesa, festa compacta (pocket party) e decoração infantil em Cuiabá-MT. Balões já inflados no arco e mesa cavalete dobrável.",
+        "url": "https://mickael-soares.github.io/encantonamesacba/",
+        "image": "https://mickael-soares.github.io/encantonamesacba/images/og-preview.jpg",
+        "telephone": "+55-65-99687-2050",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Cuiabá",
+          "addressRegion": "MT",
+          "addressCountry": "BR",
+          "streetAddress": "Bairro Coophamil"
+        },
+        "areaServed": {
+          "@type": "City",
+          "name": "Cuiabá"
+        },
+        "sameAs": [
+          "https://www.instagram.com/encantonamesacba/"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "E se uma criança quebrar ou trincar uma peça?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Se algo quebrar ou trincar, conversamos direto no WhatsApp e acertamos apenas o valor de custo para repor a peça específica, sem multas abusivas. O arco de balões é um presente e não precisa ser devolvido."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Onde retiro e quando devolvo o kit?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A retirada e a devolução são feitas no nosso ateliê no Bairro Coophamil (Cuiabá-MT), 1 dia antes da festa e devolução no primeiro dia útil seguinte."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Cabe mesmo em qualquer carro popular?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sim. A mesa cavalete tem pés dobráveis e tampo leve, e o arco de balões é flexível, cabendo no banco traseiro ou porta-malas de carros hatch ou sedan."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Como funciona a reserva da data?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A reserva é confirmada via WhatsApp com um sinal de 50% via Pix, e o saldo restante é quitado no dia da retirada do kit."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="font-body bg-[#FAF8F5] text-brand-dark antialiased selection:bg-brand-pink selection:text-white">
 
@@ -110,21 +184,39 @@
 
   <!-- Hero Section -->
   <section class="relative overflow-hidden pt-8 pb-14 md:py-16 bg-gradient-to-b from-brand-softYellow/30 via-white to-[#FAF8F5]">
-    <!-- Elementos Flutuantes Sutis Decorativos de Fundo -->
+    <!-- Elementos Flutuantes Sutis Decorativos de Fundo + Balões Animados -->
     <div class="absolute top-10 left-6 w-24 h-24 rounded-full bg-brand-pink/20 blur-2xl pointer-events-none animate-float-slow"></div>
     <div class="absolute bottom-16 right-10 w-32 h-32 rounded-full bg-brand-yellow/25 blur-2xl pointer-events-none animate-float-reverse"></div>
     <div class="absolute top-1/2 left-1/3 w-20 h-20 rounded-full bg-brand-sky/20 blur-2xl pointer-events-none animate-float-slow"></div>
 
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true">
+      <div class="hero-balloon" style="left: 5%; --dur: 13s; --del: -2s; --balloon-opacity: 0.32;">
+        <svg width="34" height="54" viewBox="0 0 40 62" fill="none"><path d="M20 38 Q16 48 22 58" stroke="#94A3B8" stroke-width="1.3"/><ellipse cx="20" cy="19" rx="15" ry="18" fill="#F06292"/><ellipse cx="14" cy="13" rx="3" ry="5.5" transform="rotate(-20 14 13)" fill="#FFF" opacity="0.55"/></svg>
+      </div>
+      <div class="hero-balloon hidden sm:block" style="left: 22%; --dur: 15s; --del: -7s; --balloon-opacity: 0.28;">
+        <svg width="28" height="44" viewBox="0 0 40 62" fill="none"><path d="M20 38 Q23 48 18 58" stroke="#94A3B8" stroke-width="1.3"/><ellipse cx="20" cy="19" rx="15" ry="18" fill="#FFD54F"/><ellipse cx="14" cy="13" rx="3" ry="5.5" transform="rotate(-20 14 13)" fill="#FFF" opacity="0.6"/></svg>
+      </div>
+      <div class="hero-balloon" style="left: 47%; --dur: 12s; --del: -4s; --balloon-opacity: 0.26;">
+        <svg width="30" height="48" viewBox="0 0 40 62" fill="none"><path d="M20 38 Q16 48 22 58" stroke="#94A3B8" stroke-width="1.3"/><ellipse cx="20" cy="19" rx="15" ry="18" fill="#4FC3F7"/><ellipse cx="14" cy="13" rx="3" ry="5.5" transform="rotate(-20 14 13)" fill="#FFF" opacity="0.55"/></svg>
+      </div>
+      <div class="hero-balloon hidden md:block" style="left: 72%; --dur: 14s; --del: -9s; --balloon-opacity: 0.30;">
+        <svg width="36" height="56" viewBox="0 0 40 62" fill="none"><path d="M20 38 Q24 48 19 58" stroke="#94A3B8" stroke-width="1.3"/><ellipse cx="20" cy="19" rx="15" ry="18" fill="#FF9800"/><ellipse cx="14" cy="13" rx="3" ry="5.5" transform="rotate(-20 14 13)" fill="#FFF" opacity="0.55"/></svg>
+      </div>
+      <div class="hero-balloon" style="left: 89%; --dur: 11.5s; --del: -5.5s; --balloon-opacity: 0.30;">
+        <svg width="32" height="50" viewBox="0 0 40 62" fill="none"><path d="M20 38 Q17 48 22 58" stroke="#94A3B8" stroke-width="1.3"/><ellipse cx="20" cy="19" rx="15" ry="18" fill="#F48FB1"/><ellipse cx="14" cy="13" rx="3" ry="5.5" transform="rotate(-20 14 13)" fill="#FFF" opacity="0.55"/></svg>
+      </div>
+    </div>
+
     <div class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center relative z-10">
       <div>
         <span class="inline-flex items-center gap-2 bg-pink-50 border border-pink-200 text-pink-700 text-[11px] sm:text-xs font-bold px-3 py-1 rounded-full shadow-sm mb-4">
-          <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i> Pegue & Monte Prático em Cuiabá
+          <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i> Festa Compacta • Pegue & Monte em Cuiabá
         </span>
         <h1 class="font-title text-2xl sm:text-4xl md:text-5xl text-brand-dark font-bold leading-tight mb-4 break-words">
-          Faça do seu simples bolinho um verdadeiro <span class="text-pink-600 underline decoration-brand-yellow decoration-wavy decoration-2">Encanto na Mesa</span>!
+          Faça do seu simples bolinho uma verdadeira <span class="text-pink-600 underline decoration-brand-yellow decoration-wavy decoration-2">Festa na Mesa</span>!
         </h1>
         <p class="text-gray-600 text-xs sm:text-sm md:text-base mb-6 leading-relaxed">
-          Kits completos para você montar uma festa linda em casa ou no condomínio sem complicações. Nosso maior diferencial: <strong>os balões já saem inflados no arco</strong>, e a mesa cabe em qualquer carro popular.
+          Aluguel de kit festa compacta (pocket party) e decoração intimista para montar em casa, mesversário ou no condomínio sem complicações. Nosso maior diferencial: <strong>os balões já saem inflados no arco</strong>, e a mesa cabe em qualquer carro popular.
         </p>
 
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
@@ -332,7 +424,7 @@
       <!-- 1: Vaquinha Rosa -->
       <div class="theme-card infantil-menina bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden border border-pink-100/80 shadow-md shadow-pink-100/40 hover:shadow-xl hover:shadow-pink-200/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full min-w-[260px] sm:min-w-0 snap-center">
         <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0 cursor-pointer" onclick="openLightbox('images/vaquinha-rosa.webp', 'Vaquinha Rosa')">
-          <img src="images/vaquinha-rosa.webp" alt="Mesa Vaquinha Rosa Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <img src="images/vaquinha-rosa.webp" alt="Kit Festa Compacta Vaquinha Rosa Pegue e Monte Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           <span class="absolute top-2 right-2 bg-pink-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">Sucesso</span>
           <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1.5 backdrop-blur-[2px]">
             <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> Ver Foto
@@ -352,7 +444,7 @@
       <!-- 2: Capivara Encantada -->
       <div class="theme-card especial bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden border border-pink-100/80 shadow-md shadow-pink-100/40 hover:shadow-xl hover:shadow-pink-200/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full min-w-[260px] sm:min-w-0 snap-center">
         <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0 cursor-pointer" onclick="openLightbox('images/capivara.webp', 'Capivara de Aniversário')">
-          <img src="images/capivara.webp" alt="Mesa Capivara Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <img src="images/capivara.webp" alt="Kit Festa na Mesa Capivara Pegue e Monte Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           <span class="absolute top-2 right-2 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">Trend Cuiabá</span>
           <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1.5 backdrop-blur-[2px]">
             <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> Ver Foto
@@ -372,7 +464,7 @@
       <!-- 3: Fazendinha Menino / Trator -->
       <div class="theme-card infantil-menino bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden border border-pink-100/80 shadow-md shadow-pink-100/40 hover:shadow-xl hover:shadow-pink-200/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full min-w-[260px] sm:min-w-0 snap-center">
         <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0 cursor-pointer" onclick="openLightbox('images/fazendinha-trator.webp', 'Fazendinha do Trator')">
-          <img src="images/fazendinha-trator.webp" alt="Mesa Fazendinha Trator Azul" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <img src="images/fazendinha-trator.webp" alt="Decoração Festa Compacta Fazendinha Trator Azul Pegue e Monte Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           <span class="absolute top-2 right-2 bg-blue-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">Meninos</span>
           <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1.5 backdrop-blur-[2px]">
             <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> Ver Foto
@@ -392,7 +484,7 @@
       <!-- 4: Futebol / Flamengo -->
       <div class="theme-card infantil-menino bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden border border-pink-100/80 shadow-md shadow-pink-100/40 hover:shadow-xl hover:shadow-pink-200/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full min-w-[260px] sm:min-w-0 snap-center">
         <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0 cursor-pointer" onclick="openLightbox('images/futebol-flamengo.webp', 'Futebol & Clubes')">
-          <img src="images/futebol-flamengo.webp" alt="Mesa Futebol Flamengo Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <img src="images/futebol-flamengo.webp" alt="Kit Festa Compacta Futebol Flamengo Pegue e Monte Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           <span class="absolute top-2 right-2 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">Futebol</span>
           <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1.5 backdrop-blur-[2px]">
             <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> Ver Foto
@@ -412,7 +504,7 @@
       <!-- 5: Coquette / Happy Birthday -->
       <div class="theme-card infantil-menina bg-white/95 backdrop-blur-md rounded-2xl overflow-hidden border border-pink-100/80 shadow-md shadow-pink-100/40 hover:shadow-xl hover:shadow-pink-200/50 hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full min-w-[260px] sm:min-w-0 snap-center">
         <div class="aspect-square bg-gray-100 overflow-hidden relative flex-shrink-0 cursor-pointer" onclick="openLightbox('images/coquette-lacos.webp', 'Coquette & Laços')">
-          <img src="images/coquette-lacos.webp" alt="Mesa Coquette Laços Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+          <img src="images/coquette-lacos.webp" alt="Decoração Pocket Party Coquette Laços Pegue e Monte Cuiabá" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
           <span class="absolute top-2 right-2 bg-purple-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-sm">Delicado</span>
           <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-1.5 backdrop-blur-[2px]">
             <i class="fa-solid fa-magnifying-glass-plus text-sm"></i> Ver Foto
@@ -605,7 +697,7 @@
   </section>
 
   <!-- CTA Banner Final -->
-  <section class="py-14 bg-gradient-to-r from-pink-500 via-rose-500 to-brand-yellow text-white text-center px-4">
+  <section id="cta-final" class="py-14 bg-gradient-to-r from-pink-500 via-rose-500 to-brand-yellow text-white text-center px-4">
     <div class="max-w-2xl mx-auto">
       <h2 class="font-title text-2xl md:text-3xl font-bold mb-2">Pronta para encantar seus convidados?</h2>
       <p class="text-white/95 text-xs md:text-sm mb-6">Chame no WhatsApp agora e garanta a data da sua festa no Coophamil!</p>
@@ -635,15 +727,52 @@
       <!-- Barra de Autoria e Copyright -->
       <div class="mt-6 pt-4 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-400 gap-2 text-center sm:text-left">
         <p>© 2026 Encanto na Mesa CBA. Todos os direitos reservados.</p>
-        <p>Desenvolvido por <a href="https://github.com/mickael-soares" target="_blank" class="text-pink-600 font-bold hover:underline">Mickael Soares</a></p>
+        <div class="flex items-center justify-center sm:justify-end gap-2.5">
+          <p>Desenvolvido por <a href="https://github.com/mickael-soares/" target="_blank" rel="noopener noreferrer" class="text-pink-600 font-bold hover:underline">Mickael Soares</a></p>
+          <span class="text-gray-300" aria-hidden="true">•</span>
+          <div class="flex items-center gap-2">
+            <a href="https://github.com/mickael-soares/" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Mickael Soares" title="GitHub" class="text-gray-400 hover:text-pink-600 transition-colors text-xs">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mickael-s-97755098/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Mickael Soares" title="LinkedIn" class="text-gray-400 hover:text-pink-600 transition-colors text-xs">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Floating WhatsApp Button -->
-  <a href="https://wa.me/5565996872050?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20um%20kit%20Festa%20na%20Mesa." target="_blank" class="fixed bottom-6 right-6 z-40 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-2xl shadow-xl shadow-emerald-400/50 hover:scale-110 active:scale-95 transition-all" title="WhatsApp (65) 99687-2050">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+  <!-- Floating Smart Mascot WhatsApp Widget -->
+  <div id="waMascotWidget" class="wa-mascot-widget fixed bottom-4 right-4 sm:bottom-5 sm:right-5 z-40 flex items-end gap-2">
+    <!-- Balão de Fala (ocultável e automático) -->
+    <div id="waMascotBubble" class="wa-mascot-bubble hidden sm:flex items-start gap-1.5 mb-12 bg-white border border-pink-200 shadow-lg shadow-pink-100/70 rounded-2xl rounded-br-sm px-3 py-2 text-[11px] text-brand-dark font-semibold max-w-[170px] leading-snug">
+      <span>Oi! Quer ver se sua data está livre? 🎈</span>
+      <button id="waBubbleClose" type="button" aria-label="Fechar mensagem" class="text-gray-400 hover:text-pink-600 transition-colors leading-none text-xs -mt-0.5 ml-0.5 flex-shrink-0">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Mascote + Botão Reservar Agora -->
+    <a href="https://wa.me/5565996872050?text=Ol%C3%A1!%20Gostaria%20de%20reservar%20um%20kit%20Festa%20na%20Mesa." target="_blank" rel="noopener noreferrer" class="group flex flex-col items-center focus:outline-none" title="Reservar no WhatsApp (65) 99687-2050">
+      <!-- Mascote ilustrada baseada na logo com animação de piscada -->
+      <div class="wa-mascot-figure w-[124px] sm:w-[144px] -mb-1.5 pointer-events-none drop-shadow-md">
+        <div class="relative mascot-bob">
+          <img src="images/mascote-encanto.webp" alt="Mascote Encanto na Mesa" width="480" height="345" decoding="async" class="w-full h-auto block select-none">
+          <img src="images/mascote-encanto-blink.webp" alt="" aria-hidden="true" width="480" height="345" decoding="async" class="mascot-blink-layer absolute inset-0 w-full h-full block select-none">
+        </div>
+      </div>
+
+      <!-- Pill WhatsApp com ícone pequeno dentro -->
+      <div class="relative z-10">
+        <span class="wa-pulse-ring absolute inset-0 rounded-full bg-emerald-400 pointer-events-none"></span>
+        <span class="relative inline-flex items-center gap-1.5 bg-emerald-500 group-hover:bg-emerald-600 text-white text-xs font-bold px-3.5 py-2 rounded-full shadow-lg shadow-emerald-500/40 transition-transform group-hover:scale-105 active:scale-95 whitespace-nowrap">
+          <i class="fa-brands fa-whatsapp text-sm"></i>
+          <span>Reservar Agora</span>
+        </span>
+      </div>
+    </a>
+  </div>
 
   <!-- Lightbox Modal Vanilla -->
   <div id="lightboxModal" class="fixed inset-0 z-50 hidden bg-black/85 backdrop-blur-md flex items-center justify-center p-4" onclick="closeLightbox(event)">
